@@ -31,6 +31,10 @@ The layer sizes include the input and output layers. Each target must have the s
 
 ## Lane-following simulation
 
+![Animated preview of the neural network steering a car around a circular road](docs/lane-following.gif)
+
+*Animated preview rendered from the trained simulator.*
+
 Train the same network to steer a small car around a circular road:
 
 ```sh
