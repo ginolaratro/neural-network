@@ -50,3 +50,19 @@ python3 lane_following.py --headless
 The simulation generates example states (position relative to the lane and heading relative to the road). A simple hand-written steering rule labels those states, and the neural network learns to imitate that rule. During the drive, the network alone predicts the steering command at each step. The output is a continuous steering value, not an image or a real-world driving decision.
 
 Try changing the initial `offset` and `angle` in `Car`, the training examples, or the network's layer sizes and observe how the car behaves. The circular road has a fixed radius, and the inputs are ideal measurements; this is an educational simulation, not a self-driving system for a real vehicle.
+
+## Browser version and Vercel
+
+The browser version uses the same Python-trained weights and simulation equations. Serve it locally with:
+
+```sh
+python3 -m http.server 8000 --directory public
+```
+
+Open `http://localhost:8000` to watch the car; use Pause and Restart to control the simulation. The `public/` directory is a static site and `vercel.json` configures Vercel to deploy it without a build. To regenerate the checked-in model after changing training, run:
+
+```sh
+python3 -c 'import json; from lane_following import train_driver; n, loss = train_driver(); open("public/model.json", "w").write(json.dumps({"weights": n.weights, "biases": n.biases, "training_loss": loss[-1]}, separators=(",", ":")) + "\n")'
+```
+
+Run the browser simulation tests with `npm test` (requires Node.js).

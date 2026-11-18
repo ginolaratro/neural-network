@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Watch a neural network learn to steer a car around a simulated road.">
+  <title>Lane Lab — Neural Network Simulator</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header><a class="brand" href="/" aria-label="Lane Lab home"><span class="brand-icon">◈</span> LANE<span>LAB</span></a><a class="source" href="https://github.com/ginolaratro/neural-network">View source ↗</a></header>
+    <main>
+      <section class="intro"><div class="eyebrow"><span></span> AN EXPERIMENT IN MACHINE LEARNING</div><h1>A little network.<br><em>A lot of laps.</em></h1><p>Watch a neural network steer its way around a simulated road. Built from scratch, one decision at a time.</p></section>
+      <section class="simulator" aria-label="Lane following simulator">
+        <div class="sim-top"><div><span class="live-dot"></span><span id="status">SIMULATION RUNNING</span></div><span class="sim-id">MODEL 01 / LANE FOLLOWER</span></div>
+        <div class="track-wrap"><canvas id="track" width="640" height="500" role="img" aria-label="A car driving around a circular road"></canvas><div id="message" class="message" hidden></div></div>
+        <div class="controls"><div class="buttons"><button id="toggle" type="button">Ⅱ &nbsp; Pause</button><button id="reset" class="secondary" type="button">↻ &nbsp; Restart</button></div><span class="hint">TRAINED IN PYTHON · RUNNING IN YOUR BROWSER</span></div>
+      </section>
+      <section class="stats" aria-label="Live simulation data"><div><span>STEPS</span><strong id="steps">0</strong></div><div><span>LANE OFFSET</span><strong id="offset">0.0 <small>px</small></strong></div><div><span>HEADING ERROR</span><strong id="angle">0.00 <small>rad</small></strong></div><div><span>TRAINING LOSS</span><strong id="loss">—</strong></div></section>
+      <section class="explain"><div><div class="eyebrow">UNDER THE HOOD</div><h2>Learning to stay<br>in the lines.</h2></div><div><p>First, a simple steering rule teaches the network with examples. Then the trained network takes the wheel, using its position and heading to choose how to steer.</p><p class="note">A learning project, not a real-world driving system.</p></div></section>
+    </main><footer><span>LANE LAB / BUILT FROM SCRATCH</span><span>PYTHON + JAVASCRIPT</span></footer>
+  </div>
+</body></html>
